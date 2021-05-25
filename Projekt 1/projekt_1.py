@@ -28,8 +28,8 @@ which traverse the valley. ''',
          garpike and stingray are also present.'''
          ]
 
-users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}  # registrovani uzivatele
-pocet_oddelovacu = 30  # kolik tam chci oddelovacich carek
+users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}  # jiz registrovani uzivatele
+pocet_oddelovacu = 40  # kolik tam chci oddelovacich carek
 
 username = input("username: ")
 if username in users.keys():
@@ -44,7 +44,7 @@ if password == "":
     exit()
 
 print("-" * pocet_oddelovacu)
-print(f"Welcome to the app, {username}\nWe have {len(TEXTS)} texts to be analyzed.")
+print(f"Welcome to the app, {username}.\nWe have {len(TEXTS)} texts to be analyzed.")
 print("-" * pocet_oddelovacu)
 
 index = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")  # ptam se na text ktery chce uzivatel vybrat
@@ -83,7 +83,7 @@ print(f"There are {zacina_velkym} titlecase words.")
 print(f"There are {velka_pismena} uppercase words.")
 print(f"There are {mala_pismena} lowercase words.")
 print(f"There are {pocet_cisel} numeric strings.")
-print(f"The sum of all the numbers {soucet_cisel}")
+print(f"The sum of all the numbers is {soucet_cisel}.")
 print("-" * pocet_oddelovacu)
 
 max_val = max(pocitani_delky_slov.values())
