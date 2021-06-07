@@ -32,16 +32,22 @@ users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"
 pocet_oddelovacu = 40  # kolik tam chci oddelovacich carek
 
 username = input("username: ")
-if username in users.keys():
-    print("Username already exists!\n---EXIT---")
+if username not in users.keys():
+    # print("Username already exists!\n---EXIT---")
+    print("Username does not exists!\n---EXIT---")
     exit()
-elif username == "":
-    print("You must use a username!\n---EXIT---")
-    exit()
+# elif username == "":
+#     print("You must use a username!\n---EXIT---")
+#     exit()
 password = input("password: ")
 if password == "":
-    print("You must use a password!\n---EXIT---")
+    print("You must enter a password!\n---EXIT---")
     exit()
+
+if users[username]!=password:
+    print("Incorrect username or password!\n---EXIT---")
+    exit()
+
 
 print("-" * pocet_oddelovacu)
 print(f"Welcome to the app, {username}.\nWe have {len(TEXTS)} texts to be analyzed.")
