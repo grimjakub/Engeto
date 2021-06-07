@@ -33,21 +33,17 @@ pocet_oddelovacu = 40  # kolik tam chci oddelovacich carek
 
 username = input("username: ")
 if username not in users.keys():
-    # print("Username already exists!\n---EXIT---")
     print("Username does not exists!\n---EXIT---")
     exit()
-# elif username == "":
-#     print("You must use a username!\n---EXIT---")
-#     exit()
+
 password = input("password: ")
 if password == "":
     print("You must enter a password!\n---EXIT---")
     exit()
 
-if users[username]!=password:
+if users[username] != password:
     print("Incorrect username or password!\n---EXIT---")
     exit()
-
 
 print("-" * pocet_oddelovacu)
 print(f"Welcome to the app, {username}.\nWe have {len(TEXTS)} texts to be analyzed.")
@@ -97,6 +93,6 @@ print("LEN|" + " " * (max_val - 11) + "OCCURENCES  |NR.")
 print("-" * pocet_oddelovacu)
 
 for key, val in sorted(pocitani_delky_slov.items()):
-    if key < 10:    #abych vse zarovnal pod sebe
+    if key < 10:  # abych vse zarovnal pod sebe
         print(" ", end="")
     print(key, "|" + "*" * val + " " * (max_val - val), "|", val)
