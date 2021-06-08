@@ -96,3 +96,4 @@ for key, val in sorted(pocitani_delky_slov.items()):
     if key < 10:  # abych vse zarovnal pod sebe
         print(" ", end="")
     print(key, "|" + "*" * val + " " * (max_val - val), "|", val)
+
