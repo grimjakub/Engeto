@@ -59,7 +59,7 @@ elif int(index) > len(TEXTS):
 print("-" * pocet_oddelovacu)
 
 index = int(index) - 1  # indexuju od 0, ne od 1
-pocet_slov = len(TEXTS[index].split())
+pocet_slov = 0
 zacina_velkym = 0
 velka_pismena = 0
 mala_pismena = 0
@@ -68,8 +68,10 @@ soucet_cisel = 0
 pocitani_delky_slov = {}
 
 for slovo in TEXTS[index].split():
-    slovo = slovo.strip(".,")
-    if slovo.istitle():
+    slovo = slovo.strip(".,!?/\|-_* ")
+    if slovo=="":
+        continue
+    elif slovo.istitle():
         zacina_velkym += 1
     elif slovo.isupper():
         velka_pismena += 1
@@ -79,6 +81,7 @@ for slovo in TEXTS[index].split():
         pocet_cisel += 1
         soucet_cisel += int(slovo)
     pocitani_delky_slov[len(slovo)] = pocitani_delky_slov.get(len(slovo), 0) + 1
+    pocet_slov+=1
 
 print(f"There are {pocet_slov} words in the selected text.")
 print(f"There are {zacina_velkym} titlecase words.")
