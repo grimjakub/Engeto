@@ -7,7 +7,7 @@ while True:
     if sorted(cislo_list) == sorted(set(cislo_list)):
         break
 
-print("Tajné číslo:", tajne_cislo)  # pak smazat!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+print("Tajné číslo:", tajne_cislo)  # pak smazat!
 print("Hi there!")
 print(oddelovac)
 print("I've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
@@ -37,11 +37,15 @@ while True:
         elif pokus_list[i] in cislo_list:
             cow += 1
     if bull == 4:
-        print(f"Correct, you've guessed the right number in {pocet_pokusu} guesses!")
+        print(f"Correct, you've guessed the right number\nin {pocet_pokusu} guesses!")
         break
     else:
         bull_str = "bull" if bull == 1 else "bulls"
         cow_str = "cow" if cow == 1 else "cows"
         print(f"{bull} {bull_str}, {cow} {cow_str}")
 print(oddelovac)
-print("Thats's not so good...")
+print("Thats's amazing")
+
+## Zápis historie jednotlivých her
+# with open("game_logs.txt","a") as file:
+#     file.writelines(f"pocet_pokusu: {pocet_pokusu}\n")
