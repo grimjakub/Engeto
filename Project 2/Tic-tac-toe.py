@@ -55,10 +55,14 @@ def checkWinner(player):
     if p[0] == p[1] == p[2] != " " or p[3] == p[4] == p[5] != " " or p[6] == p[7] == p[8] != " " or p[0] == p[4] == p[
         8] != " " or p[2] == p[4] == \
             p[6] != " " or p[0] == p[3] == p[6] != " " or p[1] == p[4] == p[7] != " " or p[2] == p[5] == p[8] != " ":
-        print(f"Congratulations, the player {player} WON!")
+        print(oddelovac)
+        print(f"Congratulations, the player '{player}' WON!")
+        print(oddelovac)
         return True
     elif " " not in p:
-        print("Sorry, nobody wins")
+        print(oddelovac)
+        print("Sorry, nobody wins. You can play again")
+        print(oddelovac)
         return True
     return False
 
@@ -68,4 +72,4 @@ while True:
     for player in ["o", "x"]:
         round(player)
         if checkWinner(player):
-            break
+            exit()
