@@ -14,27 +14,33 @@ print(oddelovac)
 print("          Let's start the game")
 print("-" * 40)
 
-p = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+# pocatecni stav hry
+p = [" ", " ", " ",
+     " ", " ", " ",
+     " ", " ", " "]
+
 
 def round(x):
     while True:
         try:
             print(oddelovac)
-            player=int(input(f"Player {x} | Please enter your move number: "))
+            move = int(input(f"Player {x} | Please enter your move number: "))
             print(oddelovac)
         except:
-            print("please enter number")
+            print("Please enter a number")
             continue
-        if player>9:
+        if move > 9:
             print("too much")
             continue
-        elif p[player-1]!=" ":
+        elif p[move - 1] != " ":
             print("obsazeno")
             continue
-
         break
-    p[player-1]=x
+    p[move - 1] = x
+    gameStatus()
 
+
+def gameStatus():
     print(f"""             +---+---+---+
              | {p[0]} | {p[1]} | {p[2]} |
              +---+---+---+
@@ -44,8 +50,22 @@ def round(x):
              +---+---+---+
     """)
 
+
+def checkWinner(player):
+    if p[0] == p[1] == p[2] != " " or p[3] == p[4] == p[5] != " " or p[6] == p[7] == p[8] != " " or p[0] == p[4] == p[
+        8] != " " or p[2] == p[4] == \
+            p[6] != " " or p[0] == p[3] == p[6] != " " or p[1] == p[4] == p[7] != " " or p[2] == p[5] == p[8] != " ":
+        print(f"Congratulations, the player {player} WON!")
+        return True
+    elif " " not in p:
+        print("Sorry, nobody wins")
+        return True
+    return False
+
+
+# GAME
 while True:
-    round("o")
-    False
-    round("x")
-    break
+    for player in ["o", "x"]:
+        round(player)
+        if checkWinner(player):
+            break
